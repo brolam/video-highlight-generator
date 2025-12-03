@@ -1,0 +1,6 @@
+# requirements.txt
+opencv-python-headless
+numpy
+moviepy==1.0.3
+tqdm
+google-cloud-storage
