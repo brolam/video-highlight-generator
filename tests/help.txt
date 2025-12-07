@@ -1,0 +1,45 @@
+Resumo do Fluxo de Trabalho
+Primeira vez: python3 -m venv venv
+Toda vez que for trabalhar: source venv/bin/activate
+Instalar/Atualizar pacotes: pip install -r requirements.txt
+Rodar o código: python editor_bike.py
+Quando terminar: deactivate
+
+
+python3 editor_bike.py --blur 250 -o giro_2025_11_29_resumo.mp4 MOVI0000.mp4 MOVI0001.mp4 MOVI0002.mp4 MOVI0003.mp4 MOVI0004.mp4 MOVI0005.mp4 MOVI0006.mp4 MOVI0007.mp4 MOVI0008.mp4
+python3 editor_bike.py --blur 250 -o giro_2025_11_29_resumo_02.mp4 MOVI0009.mp4 MOVI0011.mp4 MOVI0012.mp4 MOVI0013.mp4 MOVI0014.mp4 MOVI0015.mp4 MOVI0016.mp4 MOVI0027.mp4
+
+
+ffmpeg -f concat -safe 0 -i input_01.txt -i 02_A_Feira.mp3 -c:v libx264 -c:a aac -map 0:v:0 -map 1:a:0 -shortest -pix_fmt yuv420p clipe_beautiful_day.mp4
+
+ffmpeg -f concat -safe 0 -i input_01.txt -c:v libx264 -c:a aac -map 0:v:0 -map 1:a:0 -shortest -pix_fmt yuv420p corte.mp4
+
+/media/breno/2004-1014/VIDEOA/
+
+00:03:15
+00:04:00
+
+
+
+python3 action_finder.py giro_2025_12_02_resumo_02.mp4 -o giro_2025_12_02_action_02.mp4 --top 50
+
+python3 action_finder.py /home/breno/Videos/Giro_2025_12_06/resumo_01.mp4 -o /home/breno/Videos/Giro_2025_12_06/action_01.mp4 --top 50
+
+giro_2025_12_02_action_01.mp4 --top 50
+
+ffmpeg -i /media/breno/2004-1014/VIDEOA/MOVI0000.avi -ss 00:03:15 -t 00:45:00 -c:v libx264 -c:a aac -b:a 128k 2025_12_02_corte_01.mp4
+
+ffmpeg -i giro_2025_12_02_corte_02.mp4 -ss 00:00:23 -t 00:01:23 -c:v libx264 -c:a aac -b:a 128k 2025_12_02_corte_02.mp4
+
+
+ffmpeg -f concat -safe 0 -i input_01.txt -i /home/breno/Music/Selecao/7-Beautiful_Day.mp3 -c:v libx264 -c:a aac -map 0:v:0 -map 1:a:0 -shortest -pix_fmt yuv420p /home/breno/Videos/treino_2025-12-04/corte_01.mp4
+
+ffmpeg -f concat -safe 0 -i input_01.txt -c:v libx264 -c:a aac -b:a 128k  /home/breno/Videos/treino_2025-12-04/corte_02.mp4
+
+pip3 install -r ./local/requirements.txt
+
+python3 editor_bike.py --blur 100 -o  /home/breno/Videos/Giro_2025_12_06/resumo_01.mp4 /media/breno/2004-1014/VIDEOA/MOVI000*.avi
+
+python3 editor_bike.py --blur 100 -o  /home/breno/Videos/Giro_2025_12_06/resumo_02.mp4 /media/breno/2004-1014/VIDEOA/MOVI001*.avi /media/breno/2004-1014/VIDEOA/MOVI002*.avi
+
+python3 action_finder.py /home/breno/Videos/Giro_2025_12_06/resumo_01.mp4 -o /home/breno/Videos/Giro_2025_12_06/action_01.mp4 --top 50

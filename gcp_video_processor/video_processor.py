@@ -123,7 +123,7 @@ def _get_best_moments(original_clip, action_scores, percentile_threshold):
 
 # --- FUNÇÃO PRINCIPAL DO PIPELINE ---
 
-def generate_highlight_video(input_path, output_path, blur_threshold=60, top_percent=20):
+def generate_highlight_video(input_path, output_path, steady_output_path=None, blur_threshold=60, top_percent=20):
     """
     Pipeline completo: carrega um vídeo, remove partes tremidas e extrai os melhores momentos de ação.
     """
@@ -146,6 +146,11 @@ def generate_highlight_video(input_path, output_path, blur_threshold=60, top_per
     # Concatena os clipes estáveis em um vídeo temporário em memória
     steady_video = concatenate_videoclips(steady_clips, method="compose")
     logging.info("Clipes estáveis concatenados.")
+
+    # Salva o vídeo estabilizado se um caminho de saída for fornecido
+    if steady_output_path:
+        logging.info(f"Salvando vídeo estável em {steady_output_path}...")
+        steady_video.write_videofile(steady_output_path, codec="libx264", audio_codec="aac", threads=4, preset="medium")
 
     # 2. Encontrar os momentos de maior ação no vídeo já estabilizado
     action_scores, _ = _analyze_video_for_action(steady_video)

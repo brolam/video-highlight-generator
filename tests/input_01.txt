@@ -1,0 +1,3 @@
+file '/media/breno/2004-1014/VIDEOA/MOVI0003.avi'
+inpoint 00:02:19
+outpoint 00:02:50

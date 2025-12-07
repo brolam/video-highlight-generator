@@ -1,0 +1,18 @@
+gcloud functions deploy processador-de-video \
+   --runtime python310 \
+   --trigger-resource meu-video-uploads \
+   --trigger-event google.storage.object.finalize \
+   --entry-point process_video_from_gcs \
+   --set-env-vars RESULTS_BUCKET_NAME=meu-video-resultados \
+   --memory 2048MB \
+   --timeout 540s \
+   --region us-east1  \
+   --source .
+
+Numero do projeto
+gcloud projects describe $(gcloud config get-value project) --format="value(projectNumber)"
+437663340078
+
+gcloud projects add-iam-policy-binding $(gcloud config get-value project) \
+    --member="serviceAccount:service-437663340078@gs-project-accounts.iam.gserviceaccount.com" \
+    --role="roles/pubsub.publisher"
