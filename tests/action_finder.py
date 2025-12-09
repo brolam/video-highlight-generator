@@ -8,7 +8,7 @@ from tqdm import tqdm
 # --- CONFIGURAÇÕES ---
 
 # Duração mínima para um clipe de ação ser considerado (em segundos)
-MIN_ACTION_CLIP_DURATION = 2.0
+MIN_ACTION_CLIP_DURATION = 1.0
 
 def analyze_video_for_action(filepath):
     """

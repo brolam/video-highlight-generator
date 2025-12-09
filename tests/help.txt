@@ -38,8 +38,21 @@ ffmpeg -f concat -safe 0 -i input_01.txt -c:v libx264 -c:a aac -b:a 128k  /home/
 
 pip3 install -r ./local/requirements.txt
 
+Local:
 python3 editor_bike.py --blur 100 -o  /home/breno/Videos/Giro_2025_12_06/resumo_01.mp4 /media/breno/2004-1014/VIDEOA/MOVI000*.avi
 
 python3 editor_bike.py --blur 100 -o  /home/breno/Videos/Giro_2025_12_06/resumo_02.mp4 /media/breno/2004-1014/VIDEOA/MOVI001*.avi /media/breno/2004-1014/VIDEOA/MOVI002*.avi
 
 python3 action_finder.py /home/breno/Videos/Giro_2025_12_06/resumo_01.mp4 -o /home/breno/Videos/Giro_2025_12_06/action_01.mp4 --top 50
+
+Server:
+python3 editor_bike.py --blur 180 -o  /Videos/Giro_2025_12_06/resumo_01.mp4 /media/pendrive/VIDEOA/MOVI000*.avi
+
+python3 editor_bike.py --blur 180 -o  /Videos/Giro_2025_12_06/resumo_02.mp4 /media/pendrive/VIDEOA/MOVI001*.avi /media/pendrive/VIDEOA/MOVI002*.avi
+
+python3 action_finder.py /Videos/Giro_2025_12_06/resumo_01.mp4 -o /Videos/Giro_2025_12_06/action_01.mp4 --top 90
+
+python3 action_finder.py /Videos/Giro_2025_12_06/resumo_02.mp4 -o /Videos/Giro_2025_12_06/action_02.mp4 --top 90
+
+
+smb://192.168.0.241/GiroVideos
